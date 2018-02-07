@@ -1,9 +1,10 @@
-function [clusters ICL_clusters other_param] = updateClusters(incompabilityListTreeSet, incompabilityListTreeNodeIDSet, activeTreeSet, other_param)
+function [clusters ICL_clusters other_param ] = updateClusters(incompabilityListTreeSet, incompabilityListTreeNodeIDSet, activeTreeSet, other_param)
 
 % Each tree node can be accessed by its familyID and trackID
 
 familyNo = length(incompabilityListTreeSet);
 other_param.currentTrackNo = 0;
+A = incompabilityListTreeSet(1);
 
 if familyNo == 0
     clusters = [];
@@ -85,7 +86,7 @@ for k = 1:max(familyClusters)
     ICL_Ind_sel = [];
     indSel = find(familyClusters == k);
     indSel = indSel';
-    
+
     for i = indSel
         treeInd = findleaves(incompabilityListTreeSet(i));    
                 

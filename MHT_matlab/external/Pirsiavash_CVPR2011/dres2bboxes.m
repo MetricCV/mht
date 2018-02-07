@@ -1,5 +1,4 @@
 function bboxes = dres2bboxes(dres, fnum)
-
 if ~isempty(dres.x)
     for i = 1:fnum
       bboxes(i).bbox = [];
@@ -13,4 +12,5 @@ if ~isempty(dres.x)
     end
 else
     bboxes = [];
+
 end

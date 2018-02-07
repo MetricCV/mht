@@ -30,7 +30,6 @@ track.id(del_idx) = [];
 track.sc(del_idx) = [];
 track.isdummy(del_idx) = [];
 
-
 % remove unconfirmed tracks whose score is lower than the threshold
 del_idx = [];
 for i = 1:max(track.id)
@@ -46,7 +45,6 @@ for i = 1:max(track.id)
     elseif length(idx) <= other_param.minLegnthTH
         del_idx = [del_idx; idx];     
     end    
-
 end
 track.x(del_idx) = [];
 track.y(del_idx) = [];
@@ -57,8 +55,10 @@ track.id(del_idx) = [];
 track.sc(del_idx) = [];
 track.isdummy(del_idx) = [];
 
+
 % smooth tracks
 track = smoothData(track,kalman_param);
+
 
 % map 3D detections to the image plane in the case of 3D tracking
 if other_param.is3Dtracking

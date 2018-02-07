@@ -2,6 +2,8 @@ function det = loadDet(det_input_path, other_param)
 
 load(det_input_path);
 
+
+
 if strcmp(other_param.seq,'PETS2009')
     % change the detection variable name
     det = dres;

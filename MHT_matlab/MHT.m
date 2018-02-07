@@ -32,7 +32,7 @@ for k = firstFrame:lastFrame
 
     % update the incompability list
     disp(sprintf('\nUpdating the incompability list at time %d',k));
-    [incompabilityListTreeSet incompabilityListTreeNodeIDSet]= updateICL(obsTreeSet, idTreeSet, incompabilityListTreeNodeIDSet, activeTreeSet, cur_observation, obsMembership);
+    [incompabilityListTreeSet incompabilityListTreeNodeIDSet]= updateICL(obsTreeSet, idTreeSet, incompabilityListTreeNodeIDSet, activeTreeSet, cur_observation, obsMembership)
 
 
     % update the clusters
@@ -44,10 +44,15 @@ for k = firstFrame:lastFrame
     disp(sprintf('\nGenerating the global hypothesis at time %d',k));
     [bestHypothesis bestScore trackIndexInTrees selectedTrackIDs] = generateGlobalHypothesis(scoreTreeSet, idTreeSet, incompabilityListTreeSet, clusters, ICL_clusters, selectedTrackIDs, other_param);    
     
+    disp(['trackIndexInTrees: ',length(trackIndexInTrees)])
+    disp(['confirmed tree: ',length(treeConfirmed)])
+    
     % save the output
     if k == lastFrame
         track = getTracksFromHypothesis(bestHypothesis, bestScore, trackIndexInTrees, obsTreeSet, stateTreeSet, scoreTreeSet, obsTreeSetConfirmed, stateTreeSetConfirmed, scoreTreeSetConfirmed, activeTreeSetConfirmed, treeConfirmed, clusters, other_param);
+        disp(['length tracks from hypothesis:',length(track.x)]);
         track = getFinalTracks(track, kalman_param, other_param);
+        disp(['length tracks from final tracks:',length(track.x)]);
     end
 
     % N scan pruning

@@ -101,3 +101,4 @@ ENV/
 .mypy_cache/
 
 MHT_matlab/Dataset/Crowd_PETS09/
+MHT_matlab/results/

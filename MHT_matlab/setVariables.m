@@ -19,8 +19,8 @@ activeTreeSetConfirmed = [];
 selectedTrackIDs = [];
 trackFamilyPrev = [];
 trackIDtoRegInd = [];
-firstFrame = min(observation.fr);
-lastFrame = max(observation.fr);
+firstFrame = min(observation.fr)
+lastFrame = max(observation.fr)
 familyID = 1;
 trackID = uint64(1);
 

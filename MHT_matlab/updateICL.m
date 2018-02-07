@@ -1,7 +1,8 @@
-function [incompabilityListTreeSet incompabilityListTreeNodeIDSet] = updateICL(obsTreeSet, idTreeSet, incompabilityListTreeNodeIDSetPrev,activeTreeSet, cur_observation, obsMembership)
+function [incompabilityListTreeSet, incompabilityListTreeNodeIDSet] = updateICL(obsTreeSet, idTreeSet, incompabilityListTreeNodeIDSetPrev,activeTreeSet, cur_observation, obsMembership)
 
 familyNo = length(obsTreeSet);
 if familyNo ~= 0
+    
     incompabilityListTreeSet(familyNo,1) = tree;
     incompabilityListTreeNodeIDSet(familyNo,1) = tree;
 else

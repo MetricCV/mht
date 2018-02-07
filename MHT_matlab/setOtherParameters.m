@@ -1,7 +1,7 @@
 %% select a seqeunce
-other_param.seq = 'MOT_Challenge_train';
+%other_param.seq = 'MOT_Challenge_train';
 % other_param.seq = 'MOT_Challenge_test';
-% other_param.seq = 'PETS2009';
+other_param.seq = 'PETS2009';
 % other_param.seq = 'KITTI_train';
 % other_param.seq = 'KITTI_test';
 
@@ -25,8 +25,8 @@ other_param.appNullprob = 0.3;           % c1
 %% additional parameters
 other_param.is3Dtracking = 0;            % set this parameter to 0 for 2D tracking (e.g. MOT) and 1 for 3D tracking (e.g. PETS)
 other_param.minDetScore = 0;             % detection pruning. Detections whose confidence score is lower than this threshold are ignored.
-other_param.confscTH = 5;                % confirmed track pruning (MOT). Confirmed tracks whose average detection confidence score is lower than this threshold are ignored.
-% other_param.confscTH = 0.2;            % confirmed track pruning (PETS)
+%other_param.confscTH = 5;                % confirmed track pruning (MOT). Confirmed tracks whose average detection confidence score is lower than this threshold are ignored.
+other_param.confscTH = 0.2;            % confirmed track pruning (PETS)
 other_param.dummyRatioTH = 0.5;          % confirmed track pruning based on a ratio of the # of dummy observations to the # of total observations
 other_param.minLegnthTH = 5;             % confirmed track pruning based on a track length
 other_param.maxScaleDiff = 1.4;          % allowed bounding box scale difference between consecutive frames in each track. Set this parameter to > 1. For example, 1.4 means 40% scale change is allowed.

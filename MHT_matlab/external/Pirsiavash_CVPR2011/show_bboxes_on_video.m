@@ -37,13 +37,18 @@ dirlist = dir([input_frames '*.jpg']);  %%list of images
 if isempty(dirlist)
   dirlist = dir([input_frames '*.png']);
 end
-  
+
 disp('writing output images...');
+
 len1 = length(bboxes);
+disp(len1);
 time1 = tic;
+disp('debug 1');
 for i = 1:len1
+  disp(['debug 2 for debug: ', i]);
   if toc(time1) > 2
     fprintf('%0.1f%%\n', 100*i/len1);
+    disp('debug 3 first if in for');
     time1 = tic;
   end
   bbox = bboxes(i).bbox;
@@ -57,16 +62,18 @@ for i = 1:len1
     break
   end
   if ~isempty(bbox)
+    disp('debug 4 second if in for');
     % hack by chanho
     inds = find(bbox(:,end) > thr);
     %inds = find(bbox(:,end-1) > thr);
     im1 = show_bbox_on_image(im1, bbox(inds, :), bws, col);
   end
   imwrite(im1, [output_frames sprintf('%0.8d', i) '.jpg']); %%write the output image
+  class(im1);
 end
 
 % frames_to_video(output_frames, video_fname, frame_rate);  %%convert frames to video
-% 
+%
 % if flag1
 %   unix(['rm -r ' output_frames]); %%remove temporary output folder
 % end
