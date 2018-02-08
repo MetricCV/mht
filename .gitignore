@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+MHT_matlab/Dataset/
+MHT_matlab/results/
+MHT_matlab/input/
