@@ -103,3 +103,5 @@ ENV/
 MHT_matlab/Dataset/
 MHT_matlab/results/
 MHT_matlab/input/
+
+sftp-config.json
