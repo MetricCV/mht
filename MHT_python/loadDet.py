@@ -1,15 +1,13 @@
 import numpy as np
+import _dres
 
 
 def loadDet(det_input_path, other_param):
-    # Don't know  what to do here
+
     # variable dres brought by det_input_path apparently
     # load(det_input_path)
-    print(det_input_path)
-
     if other_param['seq'] == 'PETS2009':
-        det = dres
-
+        det = _dres.create_dres()
         if not other_param['is3DTracking']:
             det['x'] = det['bx'] + det['w'] / 2
             det['y'] = det['by'] + det['h'] / 2
@@ -19,3 +17,4 @@ def loadDet(det_input_path, other_param):
 
     if 'r' not in det:
         det['r'] = np.ones(len(det['x']), 1)
+    return det

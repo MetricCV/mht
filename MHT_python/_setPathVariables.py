@@ -1,5 +1,7 @@
 import _setOtherParameters as op
 
+op.other_param = op.set_other_param()
+
 sequences = ['PETS2009', 'MOT_Challenge_train', 'KITTI_train',
              'MOT_Challenge_test', 'KITTI_test']
 
@@ -72,7 +74,8 @@ else:
 
 det_input_path = list()
 for i in range(len(input_idx)):
-    det_input_path.append(det_input_dir[seq_idx] + det_input_name[input_idx[i]] + '.mat')
+    det_input_path.append(det_input_dir[seq_idx] +
+                          det_input_name[input_idx[i]] + '.mat')
 
 img_output_path = list()
 img_input_path = list()
@@ -86,10 +89,11 @@ for i in range(len(input_idx)):
                                sequences[seq_idx] + '/' +
                                det_input_name[input_idx[i]] + '/app/')
 
-    img_input_path.append(img_input_dir[seq_idx] + img_input_subdir[input_idx[i]])
+    img_input_path.append(img_input_dir[seq_idx] +
+                          img_input_subdir[input_idx[i]])
 
 if op.other_param['seq'] == 'PETS2009':
     # ESTO NO LO HE HECHO
     # load input/PETS2009/PETS2009_S2L1_camera_parameters.mat;
-    #op.other_param['camParam'] = camParam
+    # op.other_param['camParam'] = camParam
     print('_setPathVariables.py still incomplete, line 95')

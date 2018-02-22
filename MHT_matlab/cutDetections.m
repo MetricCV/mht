@@ -1,7 +1,7 @@
 function observation = cutDetections(observation,other_param)
 
 % cut detections based on its confidence score
-del_idx = find(observation.r < other_param.minDetScore);    
+del_idx = find(observation.r < other_param.minDetScore);
 
 observation.x(del_idx) = [];
 observation.y(del_idx) = [];
