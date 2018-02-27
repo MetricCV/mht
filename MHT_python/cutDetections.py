@@ -6,4 +6,5 @@ def cutDetections(det, other_param):
 
     del_idx = list(del_idx[0])
     det = det.drop(del_idx)
+    print("Cut the detections according to the min score\n")
     return det

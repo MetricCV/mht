@@ -17,4 +17,5 @@ def loadDet(det_input_path, other_param):
 
     if 'r' not in det:
         det['r'] = np.ones(len(det['x']), 1)
+    print("Loaded the detections\n")
     return det

@@ -7,5 +7,5 @@ def selectAppFeat(det, other_param):
     else:
         det['app'] = []
         other_param['isAppModel'] = 0
-    print('pasamos')
+    print('Selected the App Feat\n')
     return det, other_param

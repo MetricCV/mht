@@ -16,6 +16,26 @@ elseif ~other_param.is3Dtracking
     det.y = det.y + det.h/2;
 end
 
+
+det1 = det.x;
+det2 = det.y;
+det3 = det.bx;
+det4 = det.by;
+det5 = det.r;
+det6 = det.fr;
+det7 = det.h;
+det8 = det.w;
+
+csvwrite("det_h.csv",det7);
+csvwrite("det_w.csv",det8);
+csvwrite("det_x.csv",det1);
+csvwrite("det_y.csv",det2);
+csvwrite("det_bx.csv",det3);
+csvwrite("det_by.csv",det4);
+csvwrite("det_r.csv",det5);
+csvwrite("det_fr.csv",det6);
+
+%struct2csv(det1,"input.csv");
 % if there is no detection score field, create it
 if ~isfield(det,'r')
     det.r = ones(length(det.x),1);

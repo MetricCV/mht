@@ -1,6 +1,4 @@
-function [appTreeSetNew obsTreeSetNew stateTreeSetNew scoreTreeSetNew idTreeSetNew activeTreeSetNew obsTreeSetConfirmed
-  stateTreeSetConfirmed scoreTreeSetConfirmed activeTreeSetConfirmed familyID trackID treeDel treeConfirmed obsMembership
-  trackIDtoRegInd] = formTrackFamily(appTreeSetPrev, obsTreeSetPrev, stateTreeSetPrev, scoreTreeSetPrev, idTreeSetPrev,
+function [appTreeSetNew, obsTreeSetNew, stateTreeSetNew, scoreTreeSetNew, idTreeSetNew, activeTreeSetNew, obsTreeSetConfirmed, stateTreeSetConfirmed, scoreTreeSetConfirmed, activeTreeSetConfirmed, familyID, trackID, treeDel, treeConfirmed, obsMembership, trackIDtoRegInd] = formTrackFamily(appTreeSetPrev, obsTreeSetPrev, stateTreeSetPrev, scoreTreeSetPrev, idTreeSetPrev,...
   activeTreeSetPrev, obsTreeSetConfirmed, stateTreeSetConfirmed, scoreTreeSetConfirmed, activeTreeSetConfirmed,...
       selectedTrackIDs, cur_observation, kalman_param, other_param, familyID, trackID, trackIDtoRegInd, cur_time)
 

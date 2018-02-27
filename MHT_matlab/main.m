@@ -15,7 +15,7 @@ for i = 1:length(det_input_path)
     adjustOtherParameters;
 
     % load detections
-    det = loadDet(det_input_path{i}, other_param);
+    det = loadDet(det_input_path{0}, other_param);
     % run MHT
     track = MHT(det, kalman_param, other_param);
 
