@@ -126,7 +126,7 @@ classdef LinearRegressor_Data < handle
                 % disp('Using weights');
                 % Change to column vector
                 if (size(W,2) > size(W,1))
-                    W = W';
+                    W = W;
                 end
                 Target = bsxfun(@times, Target, sqrt(W));
                 Input = repmat(sqrt(W), 1, d) .* Input;
@@ -134,43 +134,43 @@ classdef LinearRegressor_Data < handle
             if exist('Hessian','var') && ~isempty(Hessian)
                 obj.Hessian = Hessian;
             else
-                obj.Hessian = Input'*Input;
+                obj.Hessian = Input*Input;
             end
-            
+
             % chanho added to handle one training example case
             if size(Input,1) > 1
-                obj.FeatSum = sum(Input)';
+                obj.FeatSum = sum(Input);
             else
-                obj.FeatSum = Input';
+                obj.FeatSum = Input;
             end
-            
+
             obj.N = n;
-            %    HessiHessian = [BiasVec'*BiasVec BiasVec'*Input; Input'*BiasVec Input'*Input];
-            % obj.InputTarget = [sum(Target); Input'* Target];
-            
+            %    HessiHessian = [BiasVec*BiasVec BiasVec*Input; Input*BiasVec Input*Input];
+            % obj.InputTarget = [sum(Target); Input* Target];
+
             % chanho added to handle one training example case
             if size(Target,1) > 1
-                obj.InputTarget = [sum(Target); Input'* Target];
+                obj.InputTarget = [sum(Target); Input* Target];
             else
-                obj.InputTarget = [Target; Input'* Target];
+                obj.InputTarget = [Target; Input* Target];
             end
         end
         function Weight = Regress(obj, Lambda, Reg_Mat)
-            Hes = [obj.N obj.FeatSum';obj.FeatSum obj.Hessian];
+            Hes = [obj.N obj.FeatSum;obj.FeatSum obj.Hessian];
             if nargin < 2
                 Lambda = 1e-8*min(diag(Hes));
             end
             d = size(Hes,1);
             % Try out a parameter that goes higher with more training examples with sqrt(N).
             Lambda = Lambda * sqrt(obj.N);
-            
+
             Weight = cell(size(obj.InputTarget,2),1);
             if exist('Reg_Mat','var') && ~isempty(Reg_Mat)
                 Reg_Hes = Hes + Lambda * [1 zeros(1,d-1);zeros(d-1,1) Reg_Mat];
             else
                 if ~issparse(Hes)
                     Reg_Hes = Hes + Lambda * eye(d);
-                    % Don't regularize the constant
+                    % Dont regularize the constant
                     Reg_Hes(1,1) = Reg_Hes(1,1) - Lambda;
                 else
                     Reg_Hes = Hes + Lambda * speye(d);

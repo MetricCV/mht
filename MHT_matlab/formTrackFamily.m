@@ -38,6 +38,7 @@ function [appTreeSetNew, obsTreeSetNew, stateTreeSetNew, scoreTreeSetNew, idTree
             if other_param.isAppModel
                 % initialize an appearance model
                 indSel = setdiff(1:observationNo,i);
+                disp();
                 appModel = LinearRegressor_Data([cur_observation.app(i,:) ; cur_observation.app(indSel,:)], [1; -1*ones(length(indSel),1)]); 
             else
                 appModel = [];

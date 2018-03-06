@@ -1,6 +1,8 @@
 from anytree import *
 import pandas as pd
 import numpy as np
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error, r2_score
 
 
 def formTrackFamily(appTreeSet, obsTreeSet, stateTreeSet, scoreTreeSet,
@@ -33,7 +35,7 @@ def formTrackFamily(appTreeSet, obsTreeSet, stateTreeSet, scoreTreeSet,
         if other_param['isAppModel']:
             indSel = list(range(1, detNo))
             indSel.remove(i)
-            # appModel = encontrar libreria en python para el randfeat
+            # appModel =
         else:
             appModel = []
         if (other_param['is3DTracking'] == 0):
