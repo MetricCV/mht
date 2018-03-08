@@ -182,7 +182,10 @@ def VGG16(include_top=True, weights='imagenet',
                               '`image_data_format="channels_last"` in '
                               'your Keras config '
                               'at ~/.keras/keras.json.')
-    return model
+
+    model_vgg15 = Model(inputs = model.input, outputs = model.get_layer('fc2').output)
+
+    return model_vgg15
 
 
 if __name__ == '__main__':
